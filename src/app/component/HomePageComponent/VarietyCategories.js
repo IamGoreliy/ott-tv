@@ -36,78 +36,7 @@ const stylingRightBtnIcon = {
 
 // 🌈🌈🌈 styling end
 
-const dataCategory = [
-    {
-        id: 1,
-        categoryName: 'Action',
-        listOfFilms: [],
-    },
-    {
-        id: 2,
-        categoryName: 'Adventure',
-        listOfFilms: [],
-    },
-    {
-        id: 3,
-        categoryName: 'Comedy',
-        listOfFilms: [],
-    },
-    {
-        id: 4,
-        categoryName: 'Drama',
-        listOfFilms: [],
-    },
-    {
-        id: 5,
-        categoryName: 'Horror',
-        listOfFilms: [],
-    },
-    {
-        id: 6,
-        categoryName: 'Melodrama',
-        listOfFilms: [],
-    },
-    {
-        id: 7,
-        categoryName: 'Childlike',
-        listOfFilms: [],
-    },
-    {
-        id: 8,
-        categoryName: 'Detective',
-        listOfFilms: [],
-    },
-    {
-        id: 9,
-        categoryName: 'Science Fiction',
-        listOfFilms: [],
-    },
-    {
-        id: 10,
-        categoryName: 'Crime',
-        listOfFilms: [],
-    },
-    {
-        id: 11,
-        categoryName: 'Thrillers',
-        listOfFilms: [],
-    },
-    {
-        id: 12,
-        categoryName: 'Sports',
-        listOfFilms: [],
-    },
-    {
-        id: 13,
-        categoryName: 'Fantasy',
-        listOfFilms: [],
-    },
-    {
-        id: 14,
-        categoryName: 'Documentary',
-        listOfFilms: [],
-    },
-];
+
 
 export const VarietyCategories = () => {
     const [whatPage, setWhatPage] = useState(1);

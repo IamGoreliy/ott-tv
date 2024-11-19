@@ -6,7 +6,7 @@ const stylingPag = {
     backgroundColor: '#333333',
 }
 
-const paginatioArr = [1, 2, 3, 4];
+const paginationArr = [1, 2, 3, 4];
 
 export const Pagination = ({pageNumber, changeNumPage}) => {
     return (
@@ -16,7 +16,7 @@ export const Pagination = ({pageNumber, changeNumPage}) => {
                 columnGap: '5px',
             }}
         >
-            {paginatioArr.map(ele => {
+            {paginationArr.map(ele => {
                 return (
                     <Box
                         key={ele}
