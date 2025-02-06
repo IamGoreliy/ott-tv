@@ -20,7 +20,7 @@ export const Pagination = ({pageNumber, changeNumPage}) => {
                 return (
                     <Box
                         key={ele}
-                        onClick={() => changeNumPage(ele)}
+                        // onClick={() => changeNumPage(ele)}
                         sx={{
                             padding: '10px 0px',
                             cursor: 'pointer',

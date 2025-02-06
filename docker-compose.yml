@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  app:
+    image: node:18
+    container_name: ott-tv-app
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: sh -c "npm install && npm run dev"
+    environment:
+      NODE_ENV: development
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:latest
+    container_name: ott-tv-redis
+    ports:
+      - "6379:6379"
+    command: redis-server

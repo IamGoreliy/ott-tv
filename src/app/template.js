@@ -3,14 +3,18 @@ import {Header} from "@/app/component/Header";
 import {Footer} from "@/app/component/Footer";
 
 const Template = ({children}) => {
+
+
     return (
-        <Container
-            maxWidth='xl'
-        >
+        <>
             <Header/>
-                {children}
+            <Container
+                maxWidth='xl'
+            >
+                    {children}
+            </Container>
             <Footer/>
-        </Container>
+        </>
     );
 }
 

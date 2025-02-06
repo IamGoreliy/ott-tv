@@ -3,22 +3,28 @@ import {TitleHome} from "@/app/component/HomePageComponent/TitleHome";
 import {VarietyCategories} from "@/app/component/HomePageComponent/VarietyCategories";
 import {useEffect, useState} from "react";
 import {custFetchGetPost} from "@/utils/communicatingWithServe";
+import {Possibilities} from "@/app/component/HomePageComponent/Possibilities";
+import {FAQ} from "@/app/component/HomePageComponent/FAQ";
+import {TariffPlan} from "@/app/component/HomePageComponent/TariffPlan";
+import {SectionTrialVersion} from "@/app/component/HomePageComponent/SectionTrialVersion";
 
 
 
 export default function Home() {
-    const [response, setResponse] = useState(null);
+    const [allCategory, setAllCategory] = useState([]);
 
     useEffect(() => {
-        custFetchGetPost('https://api.themoviedb.org/3/genre/movie/list?language=en').then(res => setResponse(res)).catch(error => console.log(error));
+        custFetchGetPost('https://api.themoviedb.org/3/genre/movie/list?language=en').then(res => setAllCategory(res.genres)).catch(error => console.log(error));
     }, []);
-
-    console.log(response);
 
     return (
       <>
         <TitleHome/>
-        <VarietyCategories/>
+        <VarietyCategories listCategories={allCategory} />
+        <Possibilities/>
+        <FAQ/>
+        <TariffPlan/>
+        <SectionTrialVersion/>
       </>
     );
 }

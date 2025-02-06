@@ -38,7 +38,7 @@ const listStyle = {
 };
 
 const titleH1 = {
-    fontSize: '58px',
+    fontSize: {xs: '28px', lg: '58px'},
     fontWeight: '700',
     fontFamily: 'Manrope, sans-serif',
 };
@@ -47,7 +47,7 @@ const subTitle = {
     maxWidth: '1096px',
     marginLeft: 'auto',
     marginRight: 'auto',
-    fontSize: '18px',
+    fontSize: {xs: '14px', lg: '18px'},
     fontWeight: '400',
     fontFamily: 'Manrope, sans-serif',
     color: '#999999',
@@ -151,8 +151,8 @@ export const TitleHome = () => {
                         top: '50%',
                         left: '50%',
                         transform: 'translate(-50%, -50%)',
-                        width: '159px',
-                        height: '159px',
+                        width: () => (159 * logoSize) + 'px',
+                        height: () => (159 * logoSize) + 'px',
                     }}
                 />
             </Box>

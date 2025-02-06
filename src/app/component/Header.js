@@ -1,5 +1,5 @@
 'use client';
-import {Box, Button} from "@mui/material";
+import {Box, Button, Container} from "@mui/material";
 import {ImageMUI} from "@/utils/customComponents";
 import {IconMobileMenu, IconNotifications, IconSearch} from "@/utils/createSvg";
 import {useState} from "react";
@@ -13,7 +13,7 @@ const headerBtnNav = [
     },
     {
         nameBtn: 'Movies & Shows',
-        link: '/'
+        link: '/movieandserial'
     },
     {
         nameBtn: 'Support',
@@ -33,10 +33,11 @@ export const Header = () => {
     }
 
     return (
-       <>
+       <Container
+           maxWidth={'xl'}
+       >
            <Box
                sx={{
-                   mt: '5px',
                    position: 'fixed',
                    top: 0,
                    left: 0,
@@ -45,6 +46,8 @@ export const Header = () => {
                    alignItems: 'center',
                    width: '100%',
                    zIndex: 2,
+                   backgroundColor: 'rgba(28,28,28,0.8)',
+                   padding: '5px 0px',
                }}
            >
                <Box
@@ -153,7 +156,11 @@ export const Header = () => {
                    }}
                >
                    <Button
-                        onClick={() => setMobileMenuIsOpen(true)}
+                        onClick={() => {
+                            setMobileMenuIsOpen(true);
+
+                        }}
+                        href={'#header'}
                    >
                        <IconMobileMenu/>
                    </Button>
@@ -167,6 +174,6 @@ export const Header = () => {
            >
               <MobileHeaderMenu stateOpenMobileMenu={mobileMenuIsOpen} toggleMenu={handleOpenMobileMenu}/>
            </Box>
-       </>
+       </Container>
     )
 }
