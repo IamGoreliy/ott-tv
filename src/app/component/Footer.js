@@ -162,6 +162,7 @@ const SignaturesFooter = styled.span`
 export const Footer = () => {
     return (
             <Box
+                id={'footer'}
                 sx={{
                     backgroundColor: '#0F0F0F',
                     mt: '50px',
