@@ -4,6 +4,7 @@ import {ImageMUI} from "@/utils/customComponents";
 import {IconMobileMenu, IconNotifications, IconSearch} from "@/utils/createSvg";
 import {useState} from "react";
 import {MobileHeaderMenu} from "@/app/component/MobileHeaderMenu";
+import {useRouter} from "next/navigation";
 
 
 const headerBtnNav = [
@@ -27,6 +28,7 @@ const headerBtnNav = [
 export const Header = () => {
     const [toggleSearch, setToggleSearch] = useState(false);
     const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
+    const router = useRouter();
 
     const handleOpenMobileMenu = () => {
         setMobileMenuIsOpen(false);
@@ -97,7 +99,7 @@ export const Header = () => {
                                component={'li'}
                            >
                                <Button
-                                   href={link}
+                                   onClick={() => router.push(link)}
                                    sx={{
                                        color: '#BFBFBF',
                                        '&:hover': {

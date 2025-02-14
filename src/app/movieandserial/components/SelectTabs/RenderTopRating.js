@@ -5,6 +5,7 @@ import {PaginationForCategory} from "@/app/movieandserial/components/SelectTabs/
 import {useEffect, useState} from "react";
 import {auxiliaryFnForPaginationList} from "@/utils/auxiliaryFnForPaginationList";
 import Link from "next/link";
+import {useRouter} from "next/navigation";
 
 const urlForImage = "https://image.tmdb.org/t/p/";
 const mobileImageSize = "w300";
@@ -16,6 +17,7 @@ export const RenderTopRating = ({title, list = [], windowSize, selectedTabs}) =>
     const [whatNumPage, setWhatNumPage] = useState(1);
     const partUrlForImgMobileVer = `${urlForImage}${mobileImageSize}`;
     const partUrlForImgPCVer = `${urlForImage}${pcImageSize}`;
+    const router = useRouter();
 
 
     useEffect(() => {
@@ -89,7 +91,9 @@ export const RenderTopRating = ({title, list = [], windowSize, selectedTabs}) =>
                                 borderRadius: '12px',
                             }}
                         >
-                            <Link href={`/movieandserial/details/${selectedTabs}/${id}`}>
+                            <Box
+                                onClick={() => router.push(`/movieandserial/details/${selectedTabs}/${id}`)}
+                            >
                                 <ImageMUI
                                     src={partUrlForImgMobileVer + posterPath}
                                     alt={''}
@@ -143,7 +147,7 @@ export const RenderTopRating = ({title, list = [], windowSize, selectedTabs}) =>
                                         </Typography>
                                     </Box>
                                 </Box>
-                            </Link>
+                            </Box>
                         </Box>
                     )
                 })}

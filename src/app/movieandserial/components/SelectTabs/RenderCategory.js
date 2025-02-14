@@ -6,6 +6,7 @@ import {useEffect, useState, useLayoutEffect} from "react";
 import {PaginationForCategory} from "@/app/movieandserial/components/SelectTabs/PaginationForCategory";
 import {auxiliaryFnForPaginationList} from "@/utils/auxiliaryFnForPaginationList";
 import Link from "next/link";
+import {useRouter} from "next/navigation";
 
 const urlForImage = "https://image.tmdb.org/t/p/";
 const mobileImageSize = "w300";
@@ -16,6 +17,7 @@ export const RenderCategory = ({data, title, windowSize, whatTabsActive}) => {
     const [dataRender, setDataRender] = useState([]);
     // const [windowSize, setWindowSize] = useState(0);
     const imgURL = `${urlForImage}${mobileImageSize}`;
+    const router = useRouter();
 
 
     useEffect(() => {
@@ -93,8 +95,8 @@ export const RenderCategory = ({data, title, windowSize, whatTabsActive}) => {
                                 backgroundColor: '#2A2A2A',
                             }}
                         >
-                            <Link
-                                href={`/movieandserial/filmsList/${whatTabsActive.toLowerCase()}/${genreId}`}
+                            <Box
+                                onClick={() => router.push(`/movieandserial/filmsList/${whatTabsActive.toLowerCase()}/${genreId}`)}
                             >
                                 <Grid2
                                     container
@@ -157,7 +159,7 @@ export const RenderCategory = ({data, title, windowSize, whatTabsActive}) => {
                                     }}
                                 />
                                 </Box>
-                            </Link>
+                            </Box>
                         </Box>
                     )
                 })}

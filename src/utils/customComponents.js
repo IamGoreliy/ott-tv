@@ -10,8 +10,14 @@ export const ImageMUI = styled(props => {
         height={height}
         {...other}
         />
-})(({sx}) => {
+})(({sx, theme}) => {
     return {
         ...sx,
+        [theme.breakpoints.up('sm')]: {
+            objectFit: 'contain',
+        },
+        [theme.breakpoints.up('md')]: {
+            objectFit: 'unset',
+        }
     }
 });
