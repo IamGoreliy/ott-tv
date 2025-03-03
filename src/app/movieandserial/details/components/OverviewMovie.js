@@ -66,7 +66,7 @@ export const OverviewMovie = ({dataMovie}) => {
             sx={{
                 mt: '80px',
                 display: 'flex',
-                flexDirection: {xs: 'column', md: 'row'},
+                flexDirection: {xs: 'column', lg: 'row'},
                 justifyContent: 'space-between',
             }}
         >
@@ -75,13 +75,13 @@ export const OverviewMovie = ({dataMovie}) => {
                     display: 'flex',
                     flexDirection: 'column',
                     rowGap: '20px',
-                    flexBasis: {xs: '100%', md: '64%'},
+                    flexBasis: {xs: '100%', lg: '64%'},
                 }}
             >
                 <SectionDescription overviewText={overview}/>
                 <Box
                     sx={{
-                        display: {xs: 'block', md: 'none'},
+                        display: {xs: 'block', lg: 'none'},
                     }}
                 >
                     <SectionInformationMovie  movieGuide={crew} genres={genres} movieRating={movieRating} languages={languages} dateRelease={dateRelease}/>
@@ -91,7 +91,7 @@ export const OverviewMovie = ({dataMovie}) => {
             </Box>
             <Box
                 sx={{
-                    display: {xs: 'none', md: 'block'},
+                    display: {xs: 'none', lg: 'block'},
                     flexBasis: '34%'
                 }}
             >

@@ -2,6 +2,7 @@
 import {Box, Button, Typography} from "@mui/material";
 import {IconArrowForBtn} from "@/utils/createSvg";
 import {ImageMUI} from "@/utils/customComponents";
+import Link from "next/link";
 
 
 const imgOption = {
@@ -26,7 +27,6 @@ const titleStyle = {
 const createPathImage = (path) => path ? `${imgOption.startPath}${path}` : '/placeholderImage/6.jpg';
 
 export const SectionCast = ({cast = []}) => {
-    console.log(cast);
     return (
         <Box
             sx={{
@@ -80,7 +80,7 @@ export const SectionCast = ({cast = []}) => {
                     }}
                 >
                     {cast.length > 0 ? cast.map((castElem, index) => {
-                        const {profile_path: actorImage, name, character} = castElem;
+                        const {id: idActor, profile_path: actorImage, name, character} = castElem;
                         return (
                             <Box
                                 key={index}
@@ -91,29 +91,34 @@ export const SectionCast = ({cast = []}) => {
                                     },
                                 }}
                             >
-                                <ImageMUI
-                                    src={createPathImage(actorImage)}
-                                    alt={''}
-                                    width={imgOption.imageWidth}
-                                    height={imgOption.imageHeight}
-                                    sx={{
-                                        objectFit: 'cover',
-                                        borderRadius: '10px',
-                                    }}
-                                />
-                                <Box
-                                    sx={{
-                                        width: '87px',
-
-                                    }}
+                                <Link
+                                    href={`/movieandserial/actorsFilmsList/details/${idActor}`}
+                                    prefetch={true}
                                 >
-                                    <Typography>
-                                        <b>{name}</b>
-                                    </Typography>
-                                    <Typography>
-                                        <i>{character}</i>
-                                    </Typography>
-                                </Box>
+                                    <ImageMUI
+                                        src={createPathImage(actorImage)}
+                                        alt={''}
+                                        width={imgOption.imageWidth}
+                                        height={imgOption.imageHeight}
+                                        sx={{
+                                            objectFit: 'cover',
+                                            borderRadius: '10px',
+                                        }}
+                                    />
+                                    <Box
+                                        sx={{
+                                            width: '87px',
+
+                                        }}
+                                    >
+                                        <Typography>
+                                            <b>{name}</b>
+                                        </Typography>
+                                        <Typography>
+                                            <i>{character}</i>
+                                        </Typography>
+                                    </Box>
+                                </Link>
                             </Box>
                         )
                     }) : <Typography>нет иформации</Typography>}

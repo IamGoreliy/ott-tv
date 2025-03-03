@@ -101,7 +101,7 @@ export const RenderList = ({list = [], idCategory}) => {
     // функция открытия list option
     const toggleOpenOption = useCallback((index) => {
         setOpenOptions(prevState => prevState.listId === index ? initialStateOption : { isOpen: true, listId: index })
-    }, [])
+    }, []);
 
     useEffect(() => {
         if (!sectionFooterRef.current){
